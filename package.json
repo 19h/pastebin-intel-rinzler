@@ -1,0 +1,22 @@
+{
+      "name": "rinzler",
+      "version": "1.0.0",
+      "author": "apx",
+      "description": "rinzler",
+      "scripts": {
+            "start": "node ./app.js"
+      },
+      "main": "./app.js",
+      "repository": {
+            "type": "git",
+            "url": "https://github.com/KenanSulayman/pastebin-intel-rinzler.git"
+      },
+      "dependencies": {
+            "ircee": "*",
+            "js-yaml": "*",
+            "jsdom": "*",
+            "optimist": "*",
+            "request": "*",
+            "through": "*"
+      }
+}

@@ -1,0 +1,21 @@
+server: sly.mn
+port: 58735
+channels: 
+  - "#rtdox"
+info: 
+  nick: rinzler
+  user: rinzler/qn
+  name: rinzler
+admins: 
+  - ".+@apx.users.quakenet.org"
+bcnicks: 
+  - apx
+ignore: 
+  users: 
+    - ".+@unaffiliated/something"
+cmdchar: "!"
+vhost: null
+modules: 
+  - admin
+  - rinzler
+  - pasteintel

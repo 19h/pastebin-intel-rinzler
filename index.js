@@ -3,7 +3,7 @@
 var args = require("optimist").argv;
 var ircee = require("ircee");
 var cp = require("child_process");
-var net = require("net");
+var net = require("net"), tls = require("tls");
 var through = require("through");
 
 var EventEmitter = require("events").EventEmitter;
@@ -35,11 +35,22 @@ function connection(config) {
                 pings = 0;
                 var connectOpts = {
                         port: config.port,
-                        host: config.server,
+                        host: config.server
                 };
                 if (config.vhost)
                         connectOpts.localAddress = config.vhost;
-                var socket = net.connect(connectOpts);
+                var socket;
+
+                // lazily determine which transport to use
+                if (config.ssl) {
+                        if ( config.allowInsecure )
+                                connectOpts.rejectUnauthorized = false;
+
+                        socket = tls.connect(connectOpts);
+                } else {
+                        socket = net.connect(connectOpts);
+                }
+
                 socket.pipe(instream, {
                         end: false
                 });

@@ -1,5 +1,7 @@
 server: sly.mn
 port: 58735
+ssl: true
+allowInsecure: true
 channels: 
   - "#rtdox"
 info: 

@@ -84,8 +84,4 @@ module.exports = function(irc) {
 
 	_next();
 	queueIterator();
-
-	process.on("uncaughtException", function (e) {
-		console.log(e)
-	});
 }

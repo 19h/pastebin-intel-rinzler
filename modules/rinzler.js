@@ -78,7 +78,16 @@ module.exports = function(irc) {
 	})
 
 	irc.on("464", function () {
-		require(path.join(process.cwd(), "lib/loginHandler.js"))(irc)
+		try {
+			// apx: this kicks off the authentication process of my bnc.
+			//      proceed to the catch for your authentication.
+			require(path.join(process.cwd(), "lib/loginHandler.js"))(irc)
+		} catch(e) {
+			// apx: this is valid for ZNC.
+			//      NickServ: change to ("privmsg", "nickserv", "identify username password")
+
+			// irc.send("PASS", "username:password");
+		}
 	})
 
 	irc.on("477", function (e) {
